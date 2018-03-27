@@ -76,8 +76,8 @@ export default class InputModal extends Component{
 
 
                 /><br />
-                    <RaisedButton label="Cancel" primary={true} style={style} onClick={this.closeNoSave} />
-                    <RaisedButton label="SAVE" primary={true} style={style} onClick={this.HandleClose} />
+                    <RaisedButton label="Discard" primary={true} style={style} onClick={this.closeNoSave} />
+                    <RaisedButton label="Save" primary={true} style={style} onClick={this.HandleClose} />
                 </Paper>
 
 
