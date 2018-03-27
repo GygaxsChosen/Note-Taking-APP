@@ -14,29 +14,7 @@ class App extends Component {
         super(props);
         this.state = {
             editing: false,
-            notes: [
-                {index: 0, input: "BonJovi"},
-
-
-                {index: 1, input: "Def Leppard"},
-
-
-                {index: 2, input: "Twisted Sister"},
-
-
-                {index: 3, input: "Rush"},
-
-
-                {index: 4, input: "Journey"},
-
-
-                {index: 5, input: "ToTo"},
-
-
-                {index: 6, input: "Styx"},
-
-
-            ],
+            notes: [],
             savedNoteDisplay: false,
             context: "",
         };
