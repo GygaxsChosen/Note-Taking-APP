@@ -3,10 +3,14 @@ import logo from './logo.svg';
 import './App.css';
 import AddNoteButton from './addNoteButton.js'
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
-import NoteStorage from './noteStorage.js'
-
+import NoteStorage from './noteStorage.js';
 
 import InputModal from './inputModal.js'
+
+
+
+
+
 
 class App extends Component {
 
@@ -125,6 +129,8 @@ class App extends Component {
                         <AddNoteButton/>
                     </MuiThemeProvider>
                 </div>
+
+
 
             </div>
 
