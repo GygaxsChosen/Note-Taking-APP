@@ -33,25 +33,28 @@ export default class InputModal extends Component{
     }
     componentWillMount(){
 
-        if (this.props.data){
-            let temp = this.props.data[0].index;
+        if(this.props.context) {
+            const context = this.props.context.index;
+
+        if (this.props.data) {
             this.setState({
-                defaultTExt: this.props.data[0].input.toString()
+                defaultTExt: this.props.data[context].input.toString()
             });
 
-        }
+        }}
     }
     HandleClose(){
         if(this.props.data){
-
+// need to pass in current value of text box
             const{handleOverWrite}=this.props;
-            handleOverWrite(this.props.data);
+            handleOverWrite(this.props.data,document.getElementById("NoteData").value);
 
         }
+        else {
 
-        const {saveAndClose}=this.props;
-        saveAndClose(document.getElementById("NoteData").value);
-
+            const {saveAndClose} = this.props;
+            saveAndClose(document.getElementById("NoteData").value);
+        }
     }
     closeNoSave(){
         const {close}=this.props;

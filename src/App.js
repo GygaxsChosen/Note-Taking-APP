@@ -16,6 +16,7 @@ class App extends Component {
             editing: false,
             notes: [],
             savedNoteDisplay: false,
+            context: "",
         };
 
 
@@ -23,23 +24,29 @@ class App extends Component {
         this.saveNote = this.saveNote.bind(this);
         this.close = this.close.bind(this);
         this.loadNote = this.loadNote.bind(this);
-        this.handleOverWrite=this.handleOverWrite.bind(this);
+        this.handleOverWrite = this.handleOverWrite.bind(this);
 
     }
 
-    loadNote() {
-this.setState({
-    editing: false,
-    savedNoteDisplay: true,
+    loadNote(x) {
+        this.setState({
+            editing: false,
+            savedNoteDisplay: true,
+            context: x,
 
-})
+        })
 
     }
 
-    handleOverWrite(index){
-console.log(index);
-let temp = this.state.notes
+    handleOverWrite(Input, input) {
 
+        let cats = [...this.state.notes];
+
+        cats[this.state.context.index] = {index: this.state.context.index, input};
+
+        this.setState({
+            notes: cats,
+        })
     }
 
     addNote() {
@@ -52,21 +59,20 @@ let temp = this.state.notes
     close() {
         this.setState({
             editing: false,
-            savedNoteDisplay:false
+            savedNoteDisplay: false
         });
 
     }
 
     saveNote(input) {
         let temp = this.state.notes;
-        temp.push({index:temp.length, input});
+        temp.push({index: temp.length, input});
 
 
         this.setState({
             editing: false,
             notes: temp,
-            savedNoteDisplay:false,
-
+            savedNoteDisplay: false,
 
 
         });
@@ -86,7 +92,7 @@ let temp = this.state.notes
                         />
                     </MuiThemeProvider>
                 </div>
-                {this.state.savedNoteDisplay&&
+                {this.state.savedNoteDisplay &&
                 <MuiThemeProvider>
                     <div>
                         <InputModal
@@ -94,6 +100,7 @@ let temp = this.state.notes
                             close={this.close}
                             data={this.state.notes}
                             handleOverWrite={this.handleOverWrite}
+                            context={this.state.context}
                         />
 
                     </div>
