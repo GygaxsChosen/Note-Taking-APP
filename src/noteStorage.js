@@ -14,9 +14,9 @@ export default class NoteStorage extends Component{
     }
     handleToggle = () => this.setState({open: !this.state.open});
 
-NoteLoader(){
+NoteLoader(x){
     const{displayNote}=this.props;
-    displayNote();
+    displayNote(x);
 
 
 
@@ -33,7 +33,7 @@ NoteLoader(){
                 />
                 <Drawer open={this.state.open}>
 <div>
-    {this.props.noteData.map(x => <div onClick={this.NoteLoader}><MenuItem>{x.input.charAt(0)+x.input.charAt(1)+x.input.charAt(2)+x.input.charAt(3)+x.input.charAt(4)}...</MenuItem></div>)}
+    {this.props.noteData.map(x => <div onClick={() => this.NoteLoader(x)}><MenuItem>{x.input.charAt(0)+x.input.charAt(1)+x.input.charAt(2)+x.input.charAt(3)+x.input.charAt(4)}...</MenuItem></div>)}
 </div>
                 </Drawer>
 
